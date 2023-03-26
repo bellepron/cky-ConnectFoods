@@ -6,9 +6,9 @@ namespace cky.Inputs
 {
     public class TouchManager2D : MonoBehaviour
     {
-        public static event Action<GameObject> OnClick;
-        public static event Action<GameObject> OnMove;
-        public static event Action<GameObject> OnUp;
+        public static event Action<GameObject> HandleClick;
+        public static event Action<GameObject> HandleMove;
+        public static event Action<GameObject> HandleUp;
 
         [SerializeField] private LayerMask layerMask;
         Camera _camera;
@@ -45,21 +45,21 @@ namespace cky.Inputs
         {
             var objectTheMouseIsOn = _camera.GetGameObjectFromMousePosition2D(layerMask);
 
-            OnClick?.Invoke(objectTheMouseIsOn);
+            HandleClick?.Invoke(objectTheMouseIsOn);
         }
 
         private void Move(Vector3 mousePosition)
         {
             var objectTheMouseIsOn = _camera.GetGameObjectFromMousePosition2D(layerMask);
 
-            OnMove?.Invoke(objectTheMouseIsOn);
+            HandleMove?.Invoke(objectTheMouseIsOn);
         }
 
         private void Up(Vector3 mousePosition)
         {
             var objectTheMouseIsOn = _camera.GetGameObjectFromMousePosition2D(layerMask);
 
-            OnUp?.Invoke(objectTheMouseIsOn);
+            HandleUp?.Invoke(objectTheMouseIsOn);
         }
 
         #endregion

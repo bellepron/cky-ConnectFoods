@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 295967d453aaced42ac8633128a26576
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Leaf1Sprite: {fileID: -2130196909, guid: b798da8c08cd6b349a9e0b1cc1388f23, type: 3}
+  - Leaf2Sprite: {fileID: 1613251210, guid: b798da8c08cd6b349a9e0b1cc1388f23, type: 3}
+  - PumpkinSprite: {fileID: 700980582, guid: b798da8c08cd6b349a9e0b1cc1388f23, type: 3}
+  - BananaSprite: {fileID: -868827876, guid: b798da8c08cd6b349a9e0b1cc1388f23, type: 3}
+  - AppleSprite: {fileID: -2020453822, guid: b798da8c08cd6b349a9e0b1cc1388f23, type: 3}
+  - WaterDropSprite: {fileID: -1298132596, guid: b798da8c08cd6b349a9e0b1cc1388f23, type: 3}
+  - BlueberrySprite: {fileID: -1197764179, guid: b798da8c08cd6b349a9e0b1cc1388f23, type: 3}
+  - DragonFruitSprite: {fileID: -659029559, guid: b798da8c08cd6b349a9e0b1cc1388f23, type: 3}
+  - VerticalRocketSprite: {instanceID: 0}
+  - HorizontalRocketSprite: {instanceID: 0}
+  - BombSprite: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

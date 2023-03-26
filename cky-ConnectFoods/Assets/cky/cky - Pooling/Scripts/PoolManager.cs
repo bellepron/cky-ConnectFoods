@@ -14,9 +14,9 @@ namespace CKY.Pooling
         }
 
         public List<Pool> pools;
-        public Dictionary<Transform, Transform> poolHolderDictionary = new Dictionary<Transform, Transform>();
-        public Dictionary<int, int> spawnedObjInstaneIdDictionary = new Dictionary<int, int>();
-        public Dictionary<Transform, Queue<GameObject>> poolDictionary;
+        private Dictionary<Transform, Transform> poolHolderDictionary = new Dictionary<Transform, Transform>();
+        private Dictionary<int, int> spawnedObjInstaneIdDictionary = new Dictionary<int, int>();
+        private Dictionary<Transform, Queue<GameObject>> poolDictionary;
 
         protected override void OnFirstAwake() => Initialize();
 

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 namespace cky.Reuseables.Extension
 {
@@ -89,7 +88,7 @@ namespace cky.Reuseables.Extension
             return array.ElementAt(random);
         }
 
-        public static Tuple<int, int> CoordinatesOf<T>(this T[,] matrix, T value)
+        public static Tuple<int, int> CoordinatesOfItemInGrid<T>(this T[,] matrix, T value)
         {
             int w = matrix.GetLength(0); // width
             int h = matrix.GetLength(1); // height
@@ -105,6 +104,30 @@ namespace cky.Reuseables.Extension
 
             return Tuple.Create(-1, -1);
         }
+
+        public static List<T> GetNeighboursInGrid<T>(this T[,] grid, T cell)
+        {
+            var neighbours = new List<T>();
+            var rowNum = grid.GetLength(0);
+            var colNum = grid.GetLength(1);
+            var c = grid.CoordinatesOfItemInGrid(cell);
+            var row = c.Item1;
+            var col = c.Item2;
+
+            for (int i = row - 1; i <= row + 1; i++)
+            {
+                for (int j = col - 1; j <= col + 1; j++)
+                {
+                    if (i == row && j == col) continue;
+                    if (i < 0 || i >= rowNum || j < 0 || j >= colNum) continue;
+
+                    neighbours.Add(grid[i, j]);
+                }
+            }
+
+            return neighbours;
+        }
+
 
         #region Camera
 
