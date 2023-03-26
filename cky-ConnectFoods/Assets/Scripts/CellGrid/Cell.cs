@@ -5,10 +5,11 @@ namespace ConnectFoods.Grid
 {
     public class Cell : MonoBehaviour, ICell
     {
+        [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private int row;
         [SerializeField] private int col;
-
         [SerializeField] private GameObject item;
+
         private IItem _iItem;
         public IItem IItem { get { return _iItem; } set { _iItem = value; } }
 
@@ -47,12 +48,12 @@ namespace ConnectFoods.Grid
 
         public void Selected()
         {
-            GetComponent<Renderer>().material.color = Color.yellow;
+            spriteRenderer.material.color = Color.yellow;
         }
 
         public void DeSelected()
         {
-            GetComponent<Renderer>().material.color = Color.white;
+            spriteRenderer.material.color = Color.white;
         }
     }
 }
