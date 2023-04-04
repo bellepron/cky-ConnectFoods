@@ -82,6 +82,43 @@ namespace cky.Reuseables.Extension
             return false;
         }
 
+        private static readonly System.Random rng = new System.Random();
+
+        public static void ShuffleMatrix<T>(this T[,] matrix)
+        {
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+
+            // Flatten matrix
+            T[] flattenedMatrix = new T[rows * cols];
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    flattenedMatrix[i * cols + j] = matrix[i, j];
+                }
+            }
+
+            // Shuffle flattened matrix
+            int n = flattenedMatrix.Length;
+            while (n > 1)
+            {
+                int k = rng.Next(n--);
+                T temp = flattenedMatrix[n];
+                flattenedMatrix[n] = flattenedMatrix[k];
+                flattenedMatrix[k] = temp;
+            }
+
+            // Unflatten shuffled matrix
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    matrix[i, j] = flattenedMatrix[i * cols + j];
+                }
+            }
+        }
+
         public static T RandomFromArray<T>(this IEnumerable<T> array)
         {
             var random = UnityEngine.Random.Range(0, array.Count());
@@ -161,5 +198,17 @@ namespace cky.Reuseables.Extension
         }
 
         #endregion
+
+        public static Vector3 ClampedPositionRelativeToTheCursorInWorldSpace(this Vector3 referencePos, Camera camera, float minLength, float maxLength)
+        {
+            var mousePosToWorld = camera.ScreenToWorldPoint(Input.mousePosition);
+            mousePosToWorld.z = 0.0f;
+            var lastObjectPosition = referencePos;
+            var direction = mousePosToWorld - lastObjectPosition;
+            var dist = Mathf.Clamp((direction).magnitude, minLength, maxLength);
+            var targetPos = lastObjectPosition + dist * direction.normalized;
+
+            return targetPos;
+        }
     }
 }
