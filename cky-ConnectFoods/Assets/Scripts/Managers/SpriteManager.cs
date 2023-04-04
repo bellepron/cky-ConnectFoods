@@ -23,6 +23,8 @@ namespace ConnectFoods.Managers
 
         #endregion
 
+
+
         public Sprite GetSpritesForItemType(ItemType itemType)
         {
             switch (itemType)

@@ -8,15 +8,19 @@ namespace ConnectFoods.Managers
     public class LevelManager : SingletonPersistent<LevelManager>
     {
         [SerializeField] LevelSettings[] levels;
-        public LevelSettings levelSettings;
+        public LevelSettings LevelSettings;
 
         int _levelIndex;
+
+
 
         protected override void OnPerAwake()
         {
             _levelIndex = PlayerPrefs.GetInt(PlayerPrefHelper.pPrefsLevelIndex);
-            levelSettings = levels[_levelIndex % levels.Length];
+            LevelSettings = levels[_levelIndex % levels.Length];
         }
+
+
 
         protected void OnGameSuccess()
         {

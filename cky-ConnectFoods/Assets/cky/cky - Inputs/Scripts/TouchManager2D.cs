@@ -26,18 +26,17 @@ namespace cky.Inputs
         #region Core
 
         private void GetTouch()
-        {
-            if (Input.GetMouseButtonDown(0))
+        {if (Input.GetMouseButtonUp(0))
+            {
+                Up(Input.mousePosition);
+            }
+           else if (Input.GetMouseButtonDown(0))
             {
                 Click(Input.mousePosition);
             }
             else if (Input.GetMouseButton(0))
             {
                 Move(Input.mousePosition);
-            }
-            else if (Input.GetMouseButtonUp(0))
-            {
-                Up(Input.mousePosition);
             }
         }
 

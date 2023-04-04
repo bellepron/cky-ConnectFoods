@@ -1,6 +1,6 @@
 namespace ConnectFoods.Enums
 {
-    public enum ItemType
+    public enum MatchType
     {
         None = 0,
 
@@ -15,8 +15,9 @@ namespace ConnectFoods.Enums
 
         WaterDrop = 8,
 
-        VerticalRocket = 9,
-        HorizontalRocket = 10,
-        Bomb = 11,
+        Leaf = 9,
+        Fruit = 10,
+
+        Special = 12,
     }
 }
